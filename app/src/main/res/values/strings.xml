@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EditableRecyclerView</string>
+    <string name="editable_item_app_name">应用名称</string>
 </resources>

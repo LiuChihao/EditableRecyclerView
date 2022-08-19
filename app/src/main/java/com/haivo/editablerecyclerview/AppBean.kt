@@ -85,7 +85,6 @@ class AppBean() : Parcelable {
                     Pair("func_uid_013", null),
                     Pair("func_leadership_view", null),
                     Pair("func_query_parking", null),
-
                     Pair("func_uid_101",null),
                     Pair("func_uid_102", null),
                     Pair("func_uid_103", null),

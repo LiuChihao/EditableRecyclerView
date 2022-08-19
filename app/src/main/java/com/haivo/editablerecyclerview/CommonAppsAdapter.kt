@@ -21,7 +21,7 @@ class CommonAppsAdapter : RecyclerView.Adapter<AppsHolder>() {
     var maxCount = 8
     var onRemoveBtnClickListener: OnRemoveBtnClickListener? = null
     var isInEditing = false //是否处于编辑状态, 编辑状态时点击不能跳转
-    
+    //设置首页应用信息
     @Volatile
     var data: MutableList<AppBean> = mutableListOf()
         set(value) {
@@ -46,6 +46,7 @@ class CommonAppsAdapter : RecyclerView.Adapter<AppsHolder>() {
     
     @SuppressLint("ClickableViewAccessibility")
     override fun onBindViewHolder(holder: AppsHolder, position: Int) {
+        Log.d(TAG, "onBindViewHolder: ${data.size}")
         val appBean = data[holder.adapterPosition]
         holder.binding.ivAppIcon.setImageResource(appBean.iconRes)
         holder.binding.ivOption.setImageResource(when (appBean.option) {

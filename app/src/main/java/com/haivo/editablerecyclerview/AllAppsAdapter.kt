@@ -15,13 +15,11 @@ class AllAppsAdapter : RecyclerView.Adapter<AppsHolder>() {
     private val TAG = "AllAppsAdapter"
     
     var isInEditing = false //是否处于编辑状态, 编辑状态时点击不能跳转
-    
+
+
     @Volatile
     var data: MutableList<AppBean> = mutableListOf()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+
     var onAddBtnClickListener: OnAddBtnClickListener? = null
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppsHolder {
@@ -32,7 +30,7 @@ class AllAppsAdapter : RecyclerView.Adapter<AppsHolder>() {
     override fun getItemCount(): Int {
         return data.size
     }
-    
+    //根据不同状态设置显示
     @SuppressLint("ClickableViewAccessibility")
     override fun onBindViewHolder(holder: AppsHolder, position: Int) {
         val appBean = data[holder.adapterPosition]

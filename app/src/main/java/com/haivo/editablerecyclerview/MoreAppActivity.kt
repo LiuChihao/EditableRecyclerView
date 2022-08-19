@@ -94,6 +94,7 @@ class MoreAppActivity : AppCompatActivity() {
                 ToastUtils.showShort("保存成功")
             }
         }
+        //删除后调用
         commonAppsAdapter.onRemoveBtnClickListener = object : OnRemoveBtnClickListener {
             override fun onClick(view: View, appBean: AppBean) {
                 // 找到列表2中与列表1被删除的图标相同的那个元素, 并将其重新变为可添加状态
@@ -104,6 +105,7 @@ class MoreAppActivity : AppCompatActivity() {
                 allAppsAdapter.notifyItemChanged(theSameElementIndex)
             }
         }
+        //添加首页应用
         allAppsAdapter.onAddBtnClickListener = object : OnAddBtnClickListener {
             override fun onClick(view: View, appBean: AppBean) {
                 if (commonAppsAdapter.data.size >= commonAppsAdapter.maxCount) {
@@ -123,7 +125,7 @@ class MoreAppActivity : AppCompatActivity() {
             }
         }
     }
-
+    //设置ItemTouchHelper对象、拖拽
     private fun enableDragItem(enable: Boolean) {
         if (enable) {
             val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
@@ -136,7 +138,7 @@ class MoreAppActivity : AppCompatActivity() {
                         0
                     )
                 }
-
+                //用户松开应用时
                 override fun onMove(
                     recyclerView: RecyclerView,
                     oldHolder: RecyclerView.ViewHolder,
